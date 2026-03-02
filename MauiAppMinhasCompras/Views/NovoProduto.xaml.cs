@@ -1,5 +1,4 @@
 using MauiAppMinhasCompras.Models;
-using System.Runtime.CompilerServices;
 
 namespace MauiAppMinhasCompras.Views;
 
@@ -9,7 +8,7 @@ public partial class NovoProduto : ContentPage
 	{
 		InitializeComponent();
 	}
-	private async Task ToolbarItem_Clicked(object sender, EventArgs e)
+	private async void ToolbarItem_Clicked(object sender, EventArgs e)
 	{
 		try
 		{
@@ -24,10 +23,12 @@ public partial class NovoProduto : ContentPage
 			await App.Db.Insert(p);
 			await DisplayAlert("Sucesso!", "Regitro Inserido", "OK");
 
-		}
-		catch (Exception ex)
-		{
-			DisplayAlert("Ops", ex.Message, "OK");
+
+		}catch (Exception ex)
+
+
+        {
+			await DisplayAlert("Ops", ex.Message, "OK");
 		}
 	}
 }
